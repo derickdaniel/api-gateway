@@ -1,0 +1,15 @@
+server:
+  port: 8083
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: dev-issue-book
+          uri: http://localhost:8082/
+          Predicates:
+            - Path=//issue/**
+        - id: Microservice2
+          uri: http://localhost:8082/
+          Predicates:
+            - Path=/serviceB/**
+            - Path=/serviceB/**
