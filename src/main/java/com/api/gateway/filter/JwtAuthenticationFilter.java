@@ -24,6 +24,11 @@ import io.jsonwebtoken.UnsupportedJwtException;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
 
+/**
+ * Implementing GatewayFilter, this should be configured using code, for
+ * application properties config. we need to use GatewayFilterFactory
+ * implementation
+ */
 @Component
 @Slf4j
 public class JwtAuthenticationFilter implements GatewayFilter {

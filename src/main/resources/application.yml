@@ -4,7 +4,7 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: auth-service
+        - id: AUTH-SERVICE
           uri: http://localhost:8081/
           Predicates:
             - Path=/authenticate/**
@@ -12,3 +12,12 @@ spring:
           uri: http://localhost:8082/
           Predicates:
             - Path=/dib/**
+            
+logging:
+  level:
+    org.springframework: DEBUG
+
+jwt:
+  secret: mySecretKey
+  expireMs: 120000
+  refrEshexpireMs: 120000
