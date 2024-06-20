@@ -27,10 +27,8 @@ public class GatewayConfig {
 
 		// lb://AUTH-SERVICE
 		return builder.routes()
-				.route("AUTH-SERVICE",
-						r -> r.path("/authenticate/**").filters(f -> f.filter(filter)).uri("http://localhost:8081/"))
-				.route("DEV-ISSUE-BOOK",
-						r -> r.path("/dib/**").filters(f -> f.filter(filter)).uri("http://localhost:8082/"))
+				.route("AUTH-SERVICE", r -> r.path("/authenticate/**").filters(f -> f.filter(filter)).uri("lb://AUTH-SERVICE"))
+				.route("DEV-ISSUE-BOOK", r -> r.path("/dib/**").filters(f -> f.filter(filter)).uri("lb://DEV-ISSUE-BOOK"))
 				.build();
 	}
 }

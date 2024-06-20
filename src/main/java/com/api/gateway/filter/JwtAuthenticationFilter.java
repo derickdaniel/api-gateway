@@ -20,6 +20,7 @@ import com.api.gateway.utils.JwtUtils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.UnsupportedJwtException;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Mono;
@@ -74,10 +75,10 @@ public class JwtAuthenticationFilter implements GatewayFilter {
 
 				return response.setComplete();
 
-			} catch (IllegalArgumentException | JwtTokenMalformedException | JwtTokenMissingException
+			} catch (IllegalArgumentException | MalformedJwtException | JwtTokenMissingException
 					| io.jsonwebtoken.SignatureException | UnsupportedJwtException e) {
 				ServerHttpResponse response = exchange.getResponse();
-				response.setStatusCode(HttpStatus.BAD_REQUEST);
+				response.setStatusCode(HttpStatus.UNAUTHORIZED);
 
 				return response.setComplete();
 			}

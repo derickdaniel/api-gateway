@@ -1,6 +1,8 @@
 server:
   port: 8080
 spring:
+  application:
+    name: API-GATEWAY
   cloud:
     gateway:
       routes:
@@ -8,7 +10,7 @@ spring:
           uri: http://localhost:8081/
           Predicates:
             - Path=/authenticate/**
-        - id: dev-issue-book
+        - id: DEV-ISSUE-BOOK
           uri: http://localhost:8082/
           Predicates:
             - Path=/dib/**
