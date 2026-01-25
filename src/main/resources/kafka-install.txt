@@ -1,0 +1,21 @@
+Step 1: Generate a Cluster ID
+------------------------------
+[guid]::NewGuid().ToString()
+
+set KAFKA_CLUSTER_ID=a63a85e3-4fb5-4b85-9592-6185c6e13a90
+
+Step 2: Format Kafka Storage
+------------------------------
+.\bin\windows\kafka-storage.bat format --standalone -t %KAFKA_CLUSTER_ID% -c .\config\server.properties
+
+Step 3: Start the Kafka Broker
+-------------------------------
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+Kafka Commands
+--------------
+Create Topic-
+./bin/kafka-topics.sh --create --topic test_topic --bootstrap-server localhost:9092 --partitions 3 --replication-factor 2
+
+List topics-
+./bin/kafka-topics.sh --list --bootstrap-server localhost:9092
