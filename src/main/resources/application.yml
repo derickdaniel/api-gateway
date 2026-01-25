@@ -3,17 +3,18 @@ server:
 spring:
   application:
     name: API-GATEWAY
-  cloud:
-    gateway:
-      routes:
-        - id: AUTH-SERVICE
-          uri: http://localhost:8081/
-          Predicates:
-            - Path=/authenticate/**
-        - id: DEV-ISSUE-BOOK
-          uri: http://localhost:8082/
-          Predicates:
-            - Path=/dib/**
+# not need, done in config class
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: AUTH-SERVICE
+#          uri: http://localhost:8081/
+#          Predicates:
+#            - Path=/authenticate/**
+#        - id: DEV-ISSUE-BOOK
+#          uri: http://localhost:8082/
+#          Predicates:
+#            - Path=/dib/**
             
 logging:
   level:
