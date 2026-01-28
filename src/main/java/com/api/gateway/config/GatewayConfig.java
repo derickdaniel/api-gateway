@@ -30,9 +30,11 @@ public class GatewayConfig {
 				.route("DEV-ISSUE-BOOK",
 						r -> r.path("/dib/**").filters(f -> f.filter(filter)).uri("lb://DEV-ISSUE-BOOK"))
 				.route("DEV-ISSUE-BOOK",
-						r -> r.path("/api/**").filters(f -> f.filter(filter)).uri("lb://DEV-ISSUE-BOOK"))
+						r -> r.path("/api/issues/**").filters(f -> f.filter(filter)).uri("lb://DEV-ISSUE-BOOK"))
 				.route("TAG-SERVICE",
 						r -> r.path("/api/tags/**").filters(f -> f.filter(filter)).uri("lb://TAG-SERVICE"))
+				.route("TAG-SERVICE",
+						r -> r.path("/api/tag-assignments/**").filters(f -> f.filter(filter)).uri("lb://TAG-SERVICE"))
 				.route("notification-service",
 						r -> r.path("/notification/**").filters(f -> f.filter(filter)).uri("lb://notification-service"))
 				.build();
