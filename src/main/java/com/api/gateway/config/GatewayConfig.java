@@ -35,6 +35,8 @@ public class GatewayConfig {
 						r -> r.path("/api/tags/**").filters(f -> f.filter(filter)).uri("lb://TAG-SERVICE"))
 				.route("TAG-SERVICE",
 						r -> r.path("/api/tag-assignments/**").filters(f -> f.filter(filter)).uri("lb://TAG-SERVICE"))
+				.route("INTERVIEW-PREP-SERVICE",
+						r -> r.path("/api/interview/**").filters(f -> f.filter(filter)).uri("lb://INTERVIEW-PREP-SERVICE"))
 				.route("notification-service",
 						r -> r.path("/notification/**").filters(f -> f.filter(filter)).uri("lb://notification-service"))
 				.build();
