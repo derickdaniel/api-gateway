@@ -36,9 +36,19 @@ public class GatewayConfig {
 				.route("TAG-SERVICE",
 						r -> r.path("/api/tag-assignments/**").filters(f -> f.filter(filter)).uri("lb://TAG-SERVICE"))
 				.route("INTERVIEW-PREP-SERVICE",
+						r -> r.path("/api/categories/**").filters(f -> f.filter(filter)).uri("lb://INTERVIEW-PREP-SERVICE"))
+				.route("INTERVIEW-PREP-SERVICE",
 						r -> r.path("/api/interview/**").filters(f -> f.filter(filter)).uri("lb://INTERVIEW-PREP-SERVICE"))
+				.route("INTERVIEW-PREP-SERVICE",
+						r -> r.path("/api/guides/**").filters(f -> f.filter(filter)).uri("lb://INTERVIEW-PREP-SERVICE"))
 				.route("notification-service",
 						r -> r.path("/notification/**").filters(f -> f.filter(filter)).uri("lb://notification-service"))
+				.route("DEV-BOOK-AI",
+						r -> r.path("/api/ai/**").filters(f -> f.filter(filter)).uri("lb://DEV-BOOK-AI"))
+				.route("DEV-BOOK-AI",
+						r -> r.path("/api/conversations/**").filters(f -> f.filter(filter)).uri("lb://DEV-BOOK-AI"))
+				.route("DEV-BOOK-AI",
+						r -> r.path("/api/messages/**").filters(f -> f.filter(filter)).uri("lb://DEV-BOOK-AI"))
 				.build();
 	}
 }

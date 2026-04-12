@@ -22,5 +22,11 @@ logging:
 
 jwt:
   secret: mySecretKey
-  expireMs: 120000
-  refrEshexpireMs: 120000
+  expireMs: 900000
+  refrEshexpireMs: 900000
+  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health", "info", "metrics", "prometheus", "bindings", "beans", "env", "loggers", "streamsbindings", "mappings"]
